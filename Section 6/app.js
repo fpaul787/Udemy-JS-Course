@@ -20,6 +20,7 @@ var budgetController = (function(){
     Expense.prototype.getPercentage = function(){
         return this.percentage;
     };
+
     var Income = function(id, description, value){
         this.id = id;
         this.description = description;
@@ -39,6 +40,7 @@ var budgetController = (function(){
     var allIncomes = [];
     var totalExpenses = 0;
 
+    // our data structure
     var data ={
         allItems:{
             exp: [], 
@@ -54,6 +56,7 @@ var budgetController = (function(){
         percentage: -1
     };
 
+    // our public functions
     return{
         addItem: function(type, des, val){
             var newItem, ID;
