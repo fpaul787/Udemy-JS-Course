@@ -19,11 +19,16 @@ module.exports={
     // put mode in package.json
     // mode: 'development' // make things fast as possible
 
+    //receives an array of all the plugins we're using
     plugins: [
+
+        // we also want to copy our src html into the dist folder
+        // and include the script
+        // this html file will be ready for production
         new HtmlWebpackPlugin({
             filename: 'index.html',
             //starting html file
-            template: './src/index.html'
+            template: './src/index.html' // will be added to our html file in dist folder
         })
     ], 
     module:{
