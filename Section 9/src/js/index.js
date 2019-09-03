@@ -1,4 +1,6 @@
 // Global app controllers
+
+// this is also our entry point
 import x from './test';
 
 const num = 23

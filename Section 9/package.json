@@ -6,7 +6,8 @@
   "scripts": {
     "dev": "webpack --mode development",
     "build": "webpack --mode production",
-    "start": "webpack-dev-server --mode development --open"
+    "_comment": "start is the standard name for a script that keeps running in the background and updates the browser as soon as we update our file",
+    "start": "webpack-dev-server --mode development --open" 
   },
   "author": "Frantz Paul",
   "license": "ISC",
