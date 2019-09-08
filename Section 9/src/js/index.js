@@ -122,6 +122,18 @@ elements.searchForm.addEventListener('submit', e => {
     controlSearch();
 });
 
+// add event listener for event click
+elements.searchResPages.addEventListener('click', e => {
+    const btn = e.target.closest('.btn-inline');
+    // console.log(btn);
+    if(btn){
+        const goToPage = parseInt(btn.dataset.goto, 10); // base 10
+        searchView.clearResults();
+        searchView.renderResults(state.search.result, goToPage);
+        // console.log(goToPage);
+    }
+})
+
 
 // const search = new Search ('pizza');
 // console.log(search);
