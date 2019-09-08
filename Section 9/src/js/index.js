@@ -1,3 +1,5 @@
+import Search from "./models/Search";
+
 // // Global app controllers
 
 // // this is also our entry point
@@ -27,31 +29,92 @@
 ////////////////////////////////////////////
 // Lecture: Making our first API
 
-import axios from 'axios';
+// import axios from 'axios';
 
-async function getResults(query){
+// async function getResults(query){
 
     
-    //older browsers might not recognize fetch
-    // using axios to do ajax call
+//     //older browsers might not recognize fetch
+//     // using axios to do ajax call
 
-    const proxy = 'https://cors-anywhere.herokuapp.com/';
-    const key = '6bd13bc05e1ae4ec00fabf0a3c299d54';
+//     const proxy = 'https://cors-anywhere.herokuapp.com/';
+//     const key = '6bd13bc05e1ae4ec00fabf0a3c299d54';
 
-    try{
-         //REMEMBER, we handle promises using async, await
-    const res = await axios(`${proxy}https://www.food2fork.com/api/search?key=${key}&q=${query}`);
-    const recipes = res.data.recipes;
-    console.log(recipes);
-    }catch(error){
-        alert(error);
-    }
+//     try{
+//          //REMEMBER, we handle promises using async, await
+//     const res = await axios(`${proxy}https://www.food2fork.com/api/search?key=${key}&q=${query}`);
+//     const recipes = res.data.recipes;
+//     console.log(recipes);
+//     }catch(error){
+//         alert(error);
+//     }
 
-    // error handling is easier in axios than in fetch
+//     // error handling is easier in axios than in fetch
    
+// }
+
+
+
+// getResults('pizza');
+// getResults('sandwich');
+
+
+
+
+
+
+/////////////////////////////////////////
+// Lecture 140
+// import Search from './models/Search';
+
+// const search = new Search('pizza');
+// console.log(search);
+
+
+///////////////////////////////////////////////
+// Lecture 141
+
+// State 
+
+
+
+/** Global state of the app
+ *  - Search Object
+ *  - Current recipe object
+ *  - Shopping list object
+ *  - Liked recipes
+ */
+const state = {};
+
+const controlSearch = async () => {
+    // 1)  Get query from view
+    const query = 'pizza' // TODO
+
+    if(query){
+        // 2) New search object and add to state
+        state.search = new Search(query);
+
+
+        // 3) Prepare UI for results 
+
+        // 4) Search for recipes
+        await state.search.getResults(); // we wait for it to finish 
+
+
+        // 5) Render results on UI
+        console.log(state.search.result);
+
+    }
 }
 
-getResults('pizza');
-getResults('sandwich')
 
+document.querySelector('.search').addEventListener('submit', e => {
+    e.preventDefault(); // stop reload
+    controlSearch();
+});
+
+
+// const search = new Search ('pizza');
+// console.log(search);
+// search.getResults();
 
