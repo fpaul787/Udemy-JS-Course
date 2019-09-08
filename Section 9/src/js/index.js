@@ -99,13 +99,12 @@ const controlSearch = async () => {
 
         // 3) Prepare UI for results 
         searchView.clearInput();
+
         // clear results from previous search
         searchView.clearResults();
 
-
         // 4) Search for recipes
-        await state.search.getResults(); // we wait for it to finish 
-
+        await state.search.getResults(); // we wait for it to finish in the background
 
         // 5) Render results on UI
         searchView.renderResults(state.search.result);

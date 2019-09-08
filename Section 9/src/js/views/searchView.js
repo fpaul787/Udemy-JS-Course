@@ -40,8 +40,10 @@ const limitRecipeTitle = (title, limit = 17) => {
         // return the result
         return `${newTitle.join(' ')} ...`;
     }
-    return title;
+    return title; // return title if length is less than limit
 }
+
+
 const renderRecipe = recipe => {
     const markup = `
         <li>
