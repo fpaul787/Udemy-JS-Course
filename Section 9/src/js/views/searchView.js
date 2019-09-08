@@ -30,6 +30,11 @@ const limitRecipeTitle = (title, limit = 17) => {
     const newTitle = [];
 
     if(title.length > limit){
+
+        // reduce method on method returns a total
+        // each reduce function has a accumulator
+        // and cur to indicate current element 
+        // in the array. 
         title.split(' ').reduce((acc, cur) =>{
             if(acc + cur.length  <= limit){
                 newTitle.push(cur);
