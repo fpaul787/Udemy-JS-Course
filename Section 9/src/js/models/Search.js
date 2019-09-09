@@ -3,6 +3,8 @@
 //module
 // export default 'I am an export string.';
 import axios from 'axios';
+import {key, proxy} from '../config';
+
 
 export default class Search {
     constructor(query) {
@@ -13,8 +15,7 @@ export default class Search {
         //older browsers might not recognize fetch
         // using axios to do ajax call
 
-        const proxy = 'https://cors-anywhere.herokuapp.com/';
-        const key = '6bd13bc05e1ae4ec00fabf0a3c299d54';
+        
 
         try {
             //REMEMBER, we handle promises using async, await
